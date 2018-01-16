@@ -19,8 +19,8 @@ RUN npm install -g bower
 
 # compass
 RUN apt-get install -yqq ruby ruby-dev
-RUN gem install sass
-RUN gem install compass
+RUN gem install --no-rdoc --no-ri sass -v 3.4.22
+RUN gem install --no-rdoc --no-ri compass
 RUN gem install susy
 
 RUN useradd --create-home --shell /bin/bash docker
