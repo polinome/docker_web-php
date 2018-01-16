@@ -24,5 +24,6 @@ RUN gem install compass
 RUN gem install susy
 
 RUN useradd --create-home --shell /bin/bash docker
-USER docker
 WORKDIR /home/docker
+
+USER root
