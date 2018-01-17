@@ -10,7 +10,7 @@ RUN docker-php-ext-install bcmath
 # composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer --version=${COMPOSER_VERSION}
 
-# node, gulp, bower
+# node, gulp, bower, sassx
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
 RUN apt-get install -yqq nodejs
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
