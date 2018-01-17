@@ -3,7 +3,7 @@ FROM php:5.6
 ENV COMPOSER_VERSION=1.5.2 COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_PATH=/usr/local/bin
 
 RUN apt-get update -yqq
-RUN apt-get install -yqq git wget
+RUN apt-get install -yqq git wget openssh-client
 
 RUN docker-php-ext-install bcmath
 
