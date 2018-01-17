@@ -10,19 +10,15 @@ RUN docker-php-ext-install bcmath
 # composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer --version=${COMPOSER_VERSION}
 
-# gulp
+# node, gulp, bower
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash -
 RUN apt-get install -yqq nodejs
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 RUN npm install -g gulp
 RUN npm install -g bower
+RUN npm install -g node-sass
 
-# compass
-RUN apt-get install -yqq ruby ruby-dev
-RUN gem install --no-rdoc --no-ri sass -v 3.4.22
-RUN gem install --no-rdoc --no-ri compass
-RUN gem install susy
-
+# create a user
 RUN useradd --create-home --shell /bin/bash docker
 WORKDIR /home/docker
 USER docker
