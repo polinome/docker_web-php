@@ -15,7 +15,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -yqq nodejs
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
-RUN npm install -g gulp
+RUN npm install -g gulp@next
 RUN npm install -g node-sass
 
 # yarn
