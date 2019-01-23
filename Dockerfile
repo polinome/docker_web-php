@@ -4,18 +4,18 @@ FROM php:5.6
 ENV COMPOSER_VERSION=1.5.2 COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_PATH=/usr/local/bin
 
 RUN apt-get update -yqq
-RUN apt-get install -yqq git openssh-client wget
+RUN apt-get install -yqq git openssh-client wget gnupg2 libxml2-dev
 
-RUN docker-php-ext-install bcmath
+RUN docker-php-ext-install bcmath soap
 
 # composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer --version=${COMPOSER_VERSION}
 
-# node, gulp, bower, sass
+# node, gulp, sass
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -yqq nodejs
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
-RUN npm install -g gulp@next
+RUN npm install -g gulp
 RUN npm install -g node-sass
 
 # yarn
