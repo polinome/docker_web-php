@@ -1,11 +1,12 @@
-FROM php:5.6
+FROM php:7.2
 
 # config installation de composer
 ENV COMPOSER_VERSION=1.5.2 COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_PATH=/usr/local/bin
 
 RUN apt-get update -yqq
-RUN apt-get install -yqq git openssh-client wget gnupg2 libxml2-dev zip unzip zlib1g-dev
+RUN apt-get install -yqq git openssh-client wget gnupg2 libxml2-dev libzip-dev zip unzip zlib1g-dev
 
+RUN docker-php-ext-configure zip --with-libzip
 RUN docker-php-ext-install bcmath soap zip
 
 # composer
