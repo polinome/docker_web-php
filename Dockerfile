@@ -1,7 +1,7 @@
 FROM php:7.2
 
 # config installation de composer
-ENV COMPOSER_VERSION=1.5.2 COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_PATH=/usr/local/bin
+ENV COMPOSER_VERSION=2.1.3 COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_PATH=/usr/local/bin
 
 RUN apt-get update -yqq
 RUN apt-get install -yqq git openssh-client wget gnupg2 libxml2-dev libzip-dev zip unzip zlib1g-dev
@@ -13,8 +13,10 @@ RUN docker-php-ext-install bcmath soap zip
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=${COMPOSER_PATH} --filename=composer --version=${COMPOSER_VERSION}
 
 # node, gulp, sass
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_15.x | bash -
 RUN apt-get install -yqq nodejs
+RUN node -v
+RUN npm -v
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 RUN npm install -g gulp
 RUN npm install -g node-sass
