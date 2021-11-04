@@ -1,4 +1,4 @@
-FROM php:7.2
+FROM php:7.2.21
 
 # config installation de composer
 ENV COMPOSER_VERSION=2.1.3 COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_PATH=/usr/local/bin
